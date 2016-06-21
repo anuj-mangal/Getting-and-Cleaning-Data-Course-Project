@@ -2,27 +2,31 @@
 The repository has  been created to share the final artifacts created as part of this project work
 
 ##Script Description
+There is a single script as part of this project, named 'run_analysis.R'. The steps below descrive the overall working of the script in tranforming the raw data obtained from UCI's website to a processed data frame named 'final_data'.
 
-1. There is a single script as part of this project, named 'run_analysis.R'.
 
-2. The script first imports the reshape2 package which brings dcast() and melt() functions to the current working environment.
+Step 1. The reshape2 package is imported in order to bring dcast() and melt() functions to the current working environment.
 
-3. In the second step, it resets the environment and removes any previously created variables.
+Step 2. The environment is reset and any previously created variables are removed.
 
-4. The data is read from all the input files into data frames.
+Step 3. The input raw data is read into data frames. Raw data comprises of training and test datasets, activity labels, feature names, subject and activity information for both testing and training datasets.
 
-5. In the following steps, I am merging training and testing datasets for feature values, activities and subjects.
+Step 4a),b) and c) . In the following steps, I am merging training and testing datasets for feature values, activities and subjects.
 
-6. The merge of the datasets is followed by the assignment of header or variable names in the respective datasets.
+Step 5. The merge of datasets is followed by the assignment of header or variable names to the respective datasets.
 
-7. Next, via the use of grep, I am extracting the measures which are related to the calculation of means and standard deviation of variables.
+Step 6. Next, via the use of grep,the measure names which are related to the calculation of means and standard deviation of variables are extracted.
 
-8. Now I am merging the data of activities and subjects with the measurements. post this step I am using merge function to derive the activity name from the      activity_label data frame.
+Step 7. The indices extracted in step 6 are used to limit the data in the data frame "complete_data" to only the selected variables.
 
-9. Next step is to rename the variables in the complete_data data frame with more descriptive ones.
+Step 8. As part of this step, the activity, subject and complete data are merged to form a consolidated data frame.
 
-10. As part of the penultimate step, I am melting the data frame and recasting it against activity_id, activity_name and subject_id to calculate the means of the variables.
+Step 9. This step introduces the activity names in the resultant data set by merging the "complete_data" data frame with the "activity_lables" data frame.
 
-11. The last step is to call the write.table function to write the final data frame i.e. final_data to a text file named "tidy_data.txt".
+Step 10. Multiple steps as part of this step transform the names of the variables to more descriptive ones.
+
+Step 11. As part of the penultimate step, I am melting the data frame and recasting it against activity_id, activity_name and subject_id to calculate the means of the variables.
+
+Step 12. The last step is to call the write.table function to write the final data frame i.e. final_data to a text file named "tidy_data.txt".
 
  
